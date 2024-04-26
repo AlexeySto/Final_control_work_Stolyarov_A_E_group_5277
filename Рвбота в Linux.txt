@@ -1,0 +1,124 @@
+1. Использование команды cat в Linux
+- Создать два текстовых файла: "Pets"(Домашние животные) и "Pack
+animals"(вьючные животные), используя команду `cat` в терминале Linux. В
+первом файле перечислить собак, кошек и хомяков. Во втором — лошадей,
+верблюдов и ослов.
+- Объединить содержимое этих двух файлов в один и просмотреть его
+содержимое.
+- Переименовать получившийся файл в "Human Friends"(.
+Пример конечного вывода после команды “ls” :
+Desktop Documents Downloads HumanFriends.txt Music PackAnimals.txt
+Pets.txt Pictures Videos
+
+Выполнение:
+alexey@alexey-VirtualBox:~$ cat > Pets
+Fido; Dog; 2020-01-01; Sit, Stay, Fetch
+Whiskers; Cat; 2019-05-15; Sit, Pounce
+Hammy; Hamster; 2021-03-10; Roll, Hide
+Buddy; Dog; 2018-12-10; Sit, Paw, Bark
+Smudge; Cat; 2020-02-20; Sit, Pounce, Scratch
+Peanut; Hamster; 2021-08-01; Roll, Spin
+Bella; Dog; 2019-11-11; Sit, Stay, Roll
+Oliver; Cat; 2020-06-30; Meow, Scratch, Jump
+Peanut; Hamster; 2021-08-01; Roll, Spin
+Bella; Dog; 2019-11-11; Sit, Stay, Roll
+Oliver; Cat; 2020-06-30; Meow, Scratch, Jump
+
+alexey@alexey-VirtualBox:~$ cat > PackAnimals
+Thunder; Horse; 2015-07-21; Trot, Canter, Gallop
+Sandy; Camel; 2016-11-03; Walk, Carry Load
+Eeyore; Donkey; 2017-09-18; Walk, Carry Load, Bray
+Storm; Horse; 2014-05-05; Trot, Canter
+Dune; Camel; 2018-12-12; Walk, Sit
+Burro; Donkey; 2019-01-23; Walk, Bray, Kick
+Blaze; Horse; 2016-02-29; Trot, Jump, Gallop
+Sahara; Camel; 2015-08-14; Walk, Run
+
+alexey@alexey-VirtualBox:~$ cat PackAnimals >> Pets 
+alexey@alexey-VirtualBox:~$ cat Pets 
+Fido; Dog; 2020-01-01; Sit, Stay, Fetch
+Whiskers; Cat; 2019-05-15; Sit, Pounce
+Hammy; Hamster; 2021-03-10; Roll, Hide
+Buddy; Dog; 2018-12-10; Sit, Paw, Bark
+Smudge; Cat; 2020-02-20; Sit, Pounce, Scratch
+Peanut; Hamster; 2021-08-01; Roll, Spin
+Bella; Dog; 2019-11-11; Sit, Stay, Roll
+Oliver; Cat; 2020-06-30; Meow, Scratch, Jump
+Peanut; Hamster; 2021-08-01; Roll, Spin
+Bella; Dog; 2019-11-11; Sit, Stay, Roll
+Oliver; Cat; 2020-06-30; Meow, Scratch, Jump
+Thunder; Horse; 2015-07-21; Trot, Canter, Gallop
+Sandy; Camel; 2016-11-03; Walk, Carry Load
+Eeyore; Donkey; 2017-09-18; Walk, Carry Load, Bray
+Storm; Horse; 2014-05-05; Trot, Canter
+Dune; Camel; 2018-12-12; Walk, Sit
+Burro; Donkey; 2019-01-23; Walk, Bray, Kick
+Blaze; Horse; 2016-02-29; Trot, Jump, Gallop
+Sahara; Camel; 2015-08-14; Walk, Run
+
+alexey@alexey-VirtualBox:~$ mv Pets Human_Friends
+
+alexey@alexey-VirtualBox:~$ ls
+
+ Human_Friends   PackAnimals   snap   Видео   Документы   Загрузки   Изображения   Музыка   Общедоступные  'Рабочий стол'   Шаблоны
+
+2. Работа с директориями в Linux
+- Создать новую директорию и переместить туда файл "Human Friends".
+
+Выполнение:
+alexey@alexey-VirtualBox:~$ mkdir Human
+alexey@alexey-VirtualBox:~$ mv Human_Friends Human/
+alexey@alexey-VirtualBox:~$ ls
+  Human   snap   Видео   Документы   Загрузки   Изображения   Музыка   Общедоступные  'Рабочий стол'   Шаблоны
+alexey@alexey-VirtualBox:~$ cd Human/
+alexey@alexey-VirtualBox:~/Human$ ls
+Human_Friends
+
+3. Работа с MySQL в Linux. “Установить MySQL на вашу вычислительную машину ”
+- Подключить дополнительный репозиторий MySQL и установить один из
+пакетов из этого репозитория.
+
+Выполнение:
+alexey@alexey-VirtualBox:~$ sudo apt update
+alexey@alexey-VirtualBox:~$ sudo apt install mysql-server mysql-client
+alexey@alexey-VirtualBox:~$ mysql --version
+mysql  Ver 8.0.36-0ubuntu0.22.04.1 for Linux on x86_64 ((Ubuntu))
+
+4. Управление deb-пакетами
+- Установить и затем удалить deb-пакет, используя команду `dpkg`.
+
+Выполнение:
+lexey@alexey-VirtualBox:~$ cd Загрузки/
+alexey@alexey-VirtualBox:~/Загрузки$ ls -l
+итого 156088
+-rw-rw-r-- 1 alexey alexey 159828676 апр 18 16:19 Yandex.deb
+alexey@alexey-VirtualBox:~/Загрузки$ sudo dpkg --install Yandex.deb 
+sudo dpkg --remove Yandex
+
+5. История команд в терминале Ubuntu
+- Сохранить и выложить историю ваших терминальных команд в Ubuntu.
+
+Выполнение:
+alexey@alexey-VirtualBox:~$ history
+    1  sudo apt update
+    2  cat > Pets
+    3  cat > PackAnimals
+    4  cat PackAnimals >> Pets
+    5  cat Pets
+    6  mv Pets Human_Friends
+    7  ls
+    8  mkdir Human
+    9  mv Human_Friends Human/
+   10  ls
+   11  cd Human/
+   12  ls
+   13  cd ..
+   14  sudo apt update
+   15  sudo apt install mysql-server mysql-client
+   16  mysql --version
+   17  cd /Загрузки/
+   18  ls -l
+   19  sudo dpkg --install Yandex.deb 
+   20  sudo dpkg -r Yandex
+   21  cd ..
+   22  history
